@@ -25,12 +25,8 @@ class SideNavComponent extends React.Component {
 
         <ul className='navigation'>
           <li>
-            <NavLink to='/run-monkey'>
-              <span className='number'>1.</span>
-              Run Monkey
-              {this.props.completedSteps.run_monkey ?
-                <FontAwesomeIcon icon={faCheck} className='pull-right checkmark'/>
-                : ''}
+            <NavLink to='/'>
+              Home
             </NavLink>
           </li>
           <li>
