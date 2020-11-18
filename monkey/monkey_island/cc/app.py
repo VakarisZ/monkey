@@ -36,6 +36,9 @@ from monkey_island.cc.resources.remote_run import RemoteRun
 from monkey_island.cc.resources.reporting.report import Report
 from monkey_island.cc.resources.root import Root
 from monkey_island.cc.resources.T1216_pba_file_download import T1216PBAFileDownload
+from monkey_island.cc.resources.scenarios.selected_scenario import SelectedScenario
+from monkey_island.cc.resources.scenarios.scenario_wizard import ScenarioWizard
+from monkey_island.cc.resources.scenarios.scenario_list import ScenarioList
 from monkey_island.cc.resources.telemetry import Telemetry
 from monkey_island.cc.resources.telemetry_feed import TelemetryFeed
 from monkey_island.cc.resources.test.clear_caches import ClearCaches
@@ -122,6 +125,10 @@ def init_api_resources(api):
     api.add_resource(Edge, '/api/netmap/edge', '/api/netmap/edge/')
     api.add_resource(Node, '/api/netmap/node', '/api/netmap/node/')
     api.add_resource(NodeStates, '/api/netmap/nodeStates')
+
+    api.add_resource(ScenarioList, '/api/scenario-list')
+    api.add_resource(SelectedScenario, '/api/selected-scenario')
+    api.add_resource(ScenarioWizard, '/api/scenario-wizard')
 
     # report_type: zero_trust or security
     api.add_resource(

@@ -25,6 +25,7 @@ import 'react-table/react-table.css';
 import notificationIcon from '../images/notification-logo-512x512.png';
 import {StandardLayoutComponent} from './layouts/StandardLayoutComponent';
 import LoadingScreen from './ui-components/LoadingScreen';
+import ScenarioPage from './pages/ScenarioPage';
 
 const reportZeroTrustRoute = '/report/zeroTrust';
 
@@ -67,6 +68,13 @@ class AppComponent extends AuthComponent {
                 this.showInfectionDoneNotification();
               }
             });
+          this.authFetch('/api/selected-scenario')
+            .then(res => res.json())
+            .then(res => {
+              if (this.state.selectedScenario === undefined || this.state.selectedScenario.id !== res.id) {
+                this.setState({selectedScenario: res});
+              }
+            })
         }
       });
   };
@@ -107,6 +115,7 @@ class AppComponent extends AuthComponent {
   constructor(props) {
     super(props);
     this.state = {
+      selectedScenario: undefined,
       completedSteps: {
         run_server: true,
         run_monkey: false,
@@ -138,9 +147,12 @@ class AppComponent extends AuthComponent {
             {this.renderRoute('/',
               <StandardLayoutComponent component={HomePageComponent}
                                        completedSteps={this.state.completedSteps}
-                                       onStatusChange={this.updateStatus}
-              />,
+                                       onStatusChange={this.updateStatus}/>,
               true)}
+            {this.renderRoute('/scenario',
+              <StandardLayoutComponent component={ScenarioPage}
+                                       onStatusChange={this.updateStatus}
+                                       completedSteps={this.state.completedSteps}/>)}
             {this.renderRoute('/configure',
               <StandardLayoutComponent component={ConfigurePage}
                                        onStatusChange={this.updateStatus}
