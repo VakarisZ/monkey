@@ -5,7 +5,7 @@ import {Button} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 
-import '../../styles/components/ScenarioButton.scss';
+import '../../../styles/components/ScenarioButton.scss';
 
 
 function ScenarioButton(props) {
@@ -13,8 +13,7 @@ function ScenarioButton(props) {
         <Button key={`${props.name}-scenario-button`}
                 variant={'outline-monkey'}
                 onClick={props.onClick}
-                className={'scenario-button'}
-        >
+                className={'scenario-button'} >
           {props.important ? <FontAwesomeIcon icon={faStar} className={'star'}/> : ''}
           {props.name}
         </Button>
@@ -23,6 +22,7 @@ function ScenarioButton(props) {
 
 ScenarioButton.propTypes = {
   name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   important: PropTypes.bool
 }

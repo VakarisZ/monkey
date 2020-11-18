@@ -1,10 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import {Button} from 'react-bootstrap';
 
-import '../../styles/components/ScenarioLink.scss';
-
+import '../../../styles/components/ScenarioLink.scss';
 
 function ScenarioLink(props) {
 

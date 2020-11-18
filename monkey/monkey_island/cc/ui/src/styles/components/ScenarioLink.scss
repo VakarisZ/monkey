@@ -1,12 +1,13 @@
-.scenario-link-button {
+.scenario-link-button.btn {
   padding: 0;
   font-size: 1.2em;
+  text-decoration: underline;
 }
 
-.scenario-link-right {
+div.scenario-link-right {
       margin: 10px 0 0 10px;
 }
 
-.scenario-link-left {
+div.scenario-link-left {
       margin: 10px 10px 0 0;
 }
